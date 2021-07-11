@@ -1,0 +1,17 @@
+Project development workflow
+1.  Craete google spread sheet
+2   Add columns Feature, description, state, and duration
+3   Enter products Component, show list of products,open,2
+4   Add time ? Hours 30 usd/hr, cost? usd
+5   Add all features
+6   create new git repository
+8   commit changes
+9   push changes
+10  start => create new feature 1 in google spreadsheet
+11  create a new branch feature-1 for test the workflow
+12 Add '// branch feature 1' in App.js Line 1
+13  commit with message 'feature 1'
+14  click publish changes
+15  open repo page on git hub
+16 create pull request
+17 merge pull request

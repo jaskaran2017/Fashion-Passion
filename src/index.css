@@ -1,0 +1,54 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+#root,
+body {
+  margin: 0;
+  height: 100vh;
+}
+body,
+input,
+select,
+textarea {
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+header {
+  grid-area: header;
+  background-color: #203040;
+  color: #ffff;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 1rem;
+}
+
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: #ffff;
+  text-align: none;
+  text-decoration: none;
+}
+a:hover {
+  color: orangered;
+}
