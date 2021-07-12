@@ -115,30 +115,8 @@ a:hover {
   /* border: 1px solid black; */
   margin: 1rem auto;
   display: block;
-  transition: transform 0.3s;
+  /* transition: transform 0.3s; */
 }
-.pic img:hover {
-  transform: scale(1);
-}
-
-/* .center {
-  display: flex;
-  /* flex: 0.9; */
-/* border: 1px solid green; */
-/* height: 90%;
-  width: 90%;
-  flex-direction: column;
-  justify-content: center;
-  margin: 5px auto; 
-} */
-
-/* .product > a > img {
-  height: 100%;
-  width: 100%;
-  border: 1px green;
-  padding: 5px;
-  object-fit: contain;
-} */
 
 .product-price {
   display: flex;
@@ -202,7 +180,7 @@ button:hover {
 
 .card:hover {
   box-shadow: 0 10px 16px 0 rgba(92, 49, 49, 0.5);
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 
 .container {
