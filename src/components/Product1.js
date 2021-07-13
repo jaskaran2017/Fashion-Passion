@@ -6,7 +6,7 @@ class ProductList extends Component {
     return (
       <div>
         <ul className="products">
-          {this.props.products.map((product) => (
+          {this.props.product.map((product) => (
             <li key={product.id}>
             <div className="card">
               <div className="product">

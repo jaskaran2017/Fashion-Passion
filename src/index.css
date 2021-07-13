@@ -186,3 +186,15 @@ button:hover {
 .container {
   padding: 2px 16px;
 }
+
+/* filter*/
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin: 1rem;
+  border-bottom: 0.1rem #c0c0c0 solid;
+}
+
