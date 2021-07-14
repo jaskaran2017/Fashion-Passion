@@ -15,11 +15,17 @@ export default class App extends Component {
       size: "",
       sort: "",
       catagory: "",
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
     };
   }
   truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  };
+
+  createOrder = (order) => {
+    alert("Happy Shoppping");
   };
   addToCart = (product) => {
     const cartItems = this.state.cartItems.slice();
@@ -36,6 +42,18 @@ export default class App extends Component {
       cartItems.push({ ...product, count: 1 });
     }
     this.setState({ cartItems });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
+
+  removeFromCart = (product) => {
+    const cartItems = this.state.cartItems.slice();
+    this.setState({
+      cartItems: cartItems.filter((item) => item.id !== product.id),
+    });
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(cartItems.filter((item) => item.id !== product.id))
+    );
   };
 
   sortProducts = (e) => {
@@ -91,13 +109,6 @@ export default class App extends Component {
     }
   };
 
-  removeFromCart = (product) => {
-    const cartItems = this.state.cartItems.slice();
-    this.setState({
-      cartItems: cartItems.filter((item) => item.id !== product.id),
-    });
-  };
-
   render() {
     return (
       <div className="grid-container">
@@ -126,6 +137,7 @@ export default class App extends Component {
                 cartItems={this.state.cartItems}
                 truncate={this.truncate}
                 removeFromCart={this.removeFromCart}
+                createOrder={this.createOrder}
               />
             </div>
           </div>

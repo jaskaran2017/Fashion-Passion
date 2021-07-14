@@ -2,6 +2,29 @@ import React, { Component } from "react";
 import formatCurrency from "../utils";
 
 export default class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      address: "",
+      showCheckout: false,
+    };
+  }
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  createOrder = (e) => {
+    e.preventDefault();
+    const order = {
+      name: this.state.name,
+      email: this.state.email,
+      address: this.state.address,
+      cartItems: this.props.cartItems,
+    };
+    this.props.createOrder(order);
+  };
+
   render() {
     const { cartItems } = this.props; //this line will check present status of the cart
     return (
@@ -46,8 +69,61 @@ export default class Cart extends Component {
                   cartItems.reduce((a, c) => a + c.price * c.count, 0)
                 )}
               </div>
-              <button className="proceed-btn">Proceed</button>
+              <button
+                onClick={() => {
+                  this.setState({ showCheckout: true });
+                }}
+                className="proceed-btn"
+              >
+                Proceed
+              </button>
             </div>
+            {/* now this checkout form will be rendred conditionally, only when
+            user clicks on proceed we will show this form */}
+            {this.state.showCheckout && (
+              <div className="cart">
+                <form onSubmit={this.createorder}>
+                  <ul>
+                    <li>
+                      <label>Name</label>
+                      <input
+                        required
+                        name="name"
+                        type="text"
+                        onChange={this.handleInput}
+                      />
+                    </li>
+                    <li>
+                      <label>Email</label>
+                      <input
+                        required
+                        name="email"
+                        type="email"
+                        onChange={this.handleInput}
+                      />
+                    </li>
+                    <li>
+                      <label>Address</label>
+                      <input
+                        required
+                        name="address"
+                        type="address"
+                        onChange={this.handleInput}
+                      />
+                    </li>
+                    <li>
+                      <button
+                        type="submit"
+                        className="proceed-btn"
+                        onClick={this.props.createOrder}
+                      >
+                        Checkout
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            )}
           </div>
         )}
       </div>

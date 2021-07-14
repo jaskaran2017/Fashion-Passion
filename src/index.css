@@ -279,6 +279,7 @@ button:hover {
   flex: 1 100%;
   display: flex;
   flex-direction: column;
+  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   /* border: 2px solid purple; */
@@ -298,6 +299,7 @@ button:hover {
 }
 .total {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -306,4 +308,25 @@ button:hover {
 }
 .proceed-btn {
   background-color: #ffc000;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: darkseagreen;
+  border: 2px solid greenyellow;
+}
+form > ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+form > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
 }
