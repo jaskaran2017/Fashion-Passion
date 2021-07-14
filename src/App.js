@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import data from "./data.json";
 import Product1 from "./components/Product1";
 import Filter from "./components/Filter";
+import Cart from "./components/Cart";
 // import MediaCard from "./components/MediaCard";
 
 //////////////
@@ -14,8 +15,28 @@ export default class App extends Component {
       size: "",
       sort: "",
       catagory: "",
+      cartItems: [],
     };
   }
+  truncate = (str, n) => {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  };
+  addToCart = (product) => {
+    const cartItems = this.state.cartItems.slice();
+
+    let alreadyInCart = false;
+
+    cartItems.forEach((item) => {
+      if (item.id === product.id) {
+        item.count++;
+        alreadyInCart = true;
+      }
+    });
+    if (!alreadyInCart) {
+      cartItems.push({ ...product, count: 1 });
+    }
+    this.setState({ cartItems });
+  };
 
   sortProducts = (e) => {
     // console.log(e.target.value);
@@ -70,6 +91,13 @@ export default class App extends Component {
     }
   };
 
+  removeFromCart = (product) => {
+    const cartItems = this.state.cartItems.slice();
+    this.setState({
+      cartItems: cartItems.filter((item) => item.id !== product.id),
+    });
+  };
+
   render() {
     return (
       <div className="grid-container">
@@ -88,9 +116,18 @@ export default class App extends Component {
                 sortProducts={this.sortProducts}
                 productCatagory={this.productCatagory}
               />
-              <Product1 product={this.state.product} />
+              <Product1
+                product={this.state.product}
+                addToCart={this.addToCart}
+              />
             </div>
-            <div className="sidebar">Cart items</div>
+            <div className="sidebar">
+              <Cart
+                cartItems={this.state.cartItems}
+                truncate={this.truncate}
+                removeFromCart={this.removeFromCart}
+              />
+            </div>
           </div>
         </main>
         <footer>&copy; All Right is Reserved.</footer>

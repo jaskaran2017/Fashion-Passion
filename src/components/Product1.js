@@ -23,7 +23,7 @@ class ProductList extends Component {
                 </div>  
               <div className="lastSection container">
                   <h3>{formatCurrency(product.price)}</h3>
-                <button className="product-btn">Add To Cart</button>
+                <button className="product-btn" onClick={()=> this.props.addToCart(product)}>Add To Cart</button>
               </div>
               </div>
               </div>
