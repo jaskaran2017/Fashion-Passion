@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import formatCurrency from "../utils";
+import { AttentionSeeker, Fade, Flip, Slide } from "react-awesome-reveal";
 
 export default class Cart extends Component {
   constructor(props) {
@@ -37,28 +38,30 @@ export default class Cart extends Component {
           </div>
         )}
         <div className="cart">
-          <ul className="cart-item">
-            {cartItems.map((item) => (
-              <li key={item.id} className="cart-li">
-                <main>
-                  <div className="liImg">
-                    <img src={item.image} alt={item.title} />
-                  </div>
-                </main>
-                <section>
-                  <div className="cart-title">
-                    {this.props.truncate(item?.title, 30)}
-                  </div>
-                  <div className="li-btn">
-                    {item.count} x {formatCurrency(item.price)}{" "}
-                    <button onClick={() => this.props.removeFromCart(item)}>
-                      Remove
-                    </button>
-                  </div>
-                </section>
-              </li>
-            ))}
-          </ul>
+          <AttentionSeeker effect="swing" cascade>
+            <ul className="cart-item">
+              {cartItems.map((item) => (
+                <li key={item.id} className="cart-li">
+                  <main>
+                    <div className="liImg">
+                      <img src={item.image} alt={item.title} />
+                    </div>
+                  </main>
+                  <section>
+                    <div className="cart-title">
+                      {this.props.truncate(item?.title, 30)}
+                    </div>
+                    <div className="li-btn">
+                      {item.count} x {formatCurrency(item.price)}{" "}
+                      <button onClick={() => this.props.removeFromCart(item)}>
+                        Remove
+                      </button>
+                    </div>
+                  </section>
+                </li>
+              ))}
+            </ul>
+          </AttentionSeeker>
         </div>
         {cartItems.length !== 0 && (
           <div className="cart">
@@ -81,8 +84,8 @@ export default class Cart extends Component {
             {/* now this checkout form will be rendred conditionally, only when
             user clicks on proceed we will show this form */}
             {this.state.showCheckout && (
-              <div className="cart">
-                <form onSubmit={this.createorder}>
+              <Flip className="cart">
+                <form className=" center" onSubmit={this.createorder}>
                   <ul>
                     <li>
                       <label>Name</label>
@@ -122,7 +125,7 @@ export default class Cart extends Component {
                     </li>
                   </ul>
                 </form>
-              </div>
+              </Flip>
             )}
           </div>
         )}

@@ -7,7 +7,7 @@
         "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
         "category": "men's clothing",
         "image": "/cartimg/img1.jpg",
-        "availableSize": ["M", "L", "XL", "XXL"]
+        "size": ["M", "L", "XL", "XXL"]
        
     },
     {

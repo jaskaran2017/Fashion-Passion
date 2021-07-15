@@ -3,6 +3,7 @@ import data from "./data.json";
 import Product1 from "./components/Product1";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
+
 // import MediaCard from "./components/MediaCard";
 
 //////////////

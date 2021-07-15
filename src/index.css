@@ -309,15 +309,15 @@ button:hover {
 .proceed-btn {
   background-color: #ffc000;
 }
-form {
+.cart > form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: darkseagreen;
-  border: 2px solid greenyellow;
+  /* background-color: darkseagreen; */
+  /* border: 2px solid greenyellow; */
 }
 form > ul {
   display: flex;
@@ -329,4 +329,56 @@ form > ul > li {
   flex-direction: column;
   width: 100%;
   margin-bottom: 1rem;
+}
+.center {
+  width: auto;
+  margin: 0 auto;
+}
+form > button {
+  margin-bottom: 2px;
+}
+/* modal  */
+/* Modal {
+} */
+.product-div {
+  position: relative;
+  display: flex;
+  /* z-index: -100; */
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 80%;
+  /* margin: 0 auto; */
+}
+.product-detail {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.product-img {
+  height: 80vh;
+  width: 40vw;
+  margin-right: 3rem;
+}
+.product-img > img {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+.lastdiv {
+  display: flex;
+  height: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* border: 2px solid blue; */
+}
+.modal-price {
+  font-size: 2.5rem;
+}
+.product-div > .close-modal {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  z-index: 1000;
 }
